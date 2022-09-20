@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout01</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #ffebee;
+        }
+        #wrap {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            width: 100%;
+            height: 150px;
+            background-color: #ffcdd2;
+        }
+        main {
+            overflow: hidden;
+        }
+        aside {
+            width: 30%;
+            height: 700px;
+            background-color: #ef9a9a;
+            float: left;
+        }
+        section {
+            width: 70%;
+            height: 700px;
+            background-color: #e57373;
+            float: left;
+        }
+        footer {
+            width: 100%;
+            height: 150px;
+            background-color: #ef5350;
+        }
+        @media (max-width: 1210px){
+            #wrap {
+                width: 90%;
+            }
+        }
+        @media (max-width: 768px){
+            #wrap {
+                width: 100%;
+            }
+        }
+        @media (max-width: 600px){
+            aside {
+                float: none;
+                width: 100%;
+                height: 300px;
+            }
+            section {
+                float: none;
+                width: 100%;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header></header>
+        <main>
+            <aside></aside>
+            <section></section>
+        </main>
+        <footer></footer>
+    </div>
+</body>
+</html>

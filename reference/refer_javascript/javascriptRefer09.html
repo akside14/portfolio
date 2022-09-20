@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript</title>
+    <link rel="stylesheet" href="https://tistory4.daumcdn.net/tistory/2933724/skin/images/font.css">
+    <link rel="stylesheet" href="https://tistory4.daumcdn.net/tistory/2933724/skin/images/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.0/themes/prism-okaidia.min.css"
+        integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <main id="contents">
+            <div class="title">
+                <h1><a href="index.html">브라우저 객체</a></h1>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="javascriptRefer01.html">데이터 저장하기</a></li>
+                    <li><a href="javascriptRefer02.html">데이터 불러오기</a></li>
+                    <li><a href="javascriptRefer03.html">데이터 실행하기</a></li>
+                    <li><a href="javascriptRefer04.html">데이터 제어하기</a></li>
+                </ul>
+                <ul>
+                    <li><a href="javascriptRefer05.html">문자열 객체</a></li>
+                    <li><a href="javascriptRefer06.html">배열 객체</a></li>
+                    <li><a href="javascriptRefer07.html">날짜 객체</a></li>
+                    <li><a href="javascriptRefer08.html">수학 객체</a></li>
+                    <li><a href="javascriptRefer14.html">숫자 객체</a></li>
+                    <li class="active"><a href="javascriptRefer09.html">브라우저 객체</a></li>
+                    <li><a href="javascriptRefer10.html">요소 객체</a></li>
+                </ul>
+            </nav>
+
+            <hr>
+
+            <div class="list">
+                <ol class="list">
+                    <li><a href="#c">브라우저 객체 : window 객체 메서드 : window.alert() : 경고창 표시하기</a></li>
+                    <li><a href="#c">브라우저 객체 : window 객체 메서드 : window.confirm() : 확인창 표시하기</a></li>
+                    <li><a href="#c">브라우저 객체 : window 객체 메서드 : window.prompt() : 입력창 표시하기</a></li>
+                    <br>
+                    <li><a href="#c">브라우저 객체 : window 객체 속성 : window.innerWidth : 브라우저 화면의 가로 값을 가져오기</a></li>
+                    <li><a href="#c">브라우저 객체 : window 객체 속성 : window.innerHeight : 브라우저 화면의 세로 값을 가져오기</a></li>
+                    <li><a href="#c">브라우저 객체 : window 객체 속성 : window.outerWidth : 브라우저 전체의 가로 값을 가져오기</a></li>
+                    <li><a href="#c">브라우저 객체 : window 객체 속성 : window.outerHeight : 브라우저 전체의 세로 값을 가져오기</a></li>
+                    <li><a href="#c">브라우저 객체 : window 객체 속성 : window.screenLeft / window.screenX : 브라우저 왼쪽 위치 값을 가져오기</a></li>
+                    <li><a href="#c">브라우저 객체 : window 객체 속성 : window.screenTop / window.scrrenY : 브라우저 위쪽 위치 값을 가져오기</a></li>
+                    <br>
+                    <li><a href="#c">브라우저 객체 : window 객체 메서드 : window.moveBy() : 브라우저 위치를 상대적으로 이동</a></li>
+                    <li><a href="#c">브라우저 객체 : window 객체 메서드 : window.moveTo() : 브라우저 위치를 절대적으로 이동</a></li>
+                    <li><a href="#c">브라우저 객체 : window 객체 메서드 : window.resizeBy() : 브라우저 크기를 상대적으로 조절</a></li>
+                    <li><a href="#c">브라우저 객체 : window 객체 메서드 : window.resizeTo() : 브라우저 크기를 절대적으로 조절</a></li>
+                    <li><a href="#c">브라우저 객체 : window 객체 메서드 : window.scrollBy() : 브라우저 스크롤 위치를 상대적으로 조절</a></li>
+                    <li><a href="#c">브라우저 객체 : window 객체 메서드 : window.scrollTo() : 브라우저 스크롤 위치를 절대적으로 조절</a></li>
+                    <li><a href="#c">브라우저 객체 : window 객체 메서드 : window.scrollX : 브라우저 가로 스크롤 크기를 가져오기</a></li>
+                    <li><a href="#c">브라우저 객체 : window 객체 메서드 : window.scrollY : 브라우저 세로 스크롤 크기를 가져오기</a></li>
+                    <br>
+                    <li><a href="#c">브라우저 객체 : screen 객체 속성 : window.screen.width : 화면의 가로 값을 가져오기</a></li>
+                    <li><a href="#c">브라우저 객체 : screen 객체 속성 : window.screen.height : 화면의 세로 값을 가져오기</a></li>
+                    <li><a href="#c">브라우저 객체 : screen 객체 속성 : window.screen.availWidth : 실제 이용 가능한 화면의 가로 값을 가져오기</a></li>
+                    <li><a href="#c">브라우저 객체 : screen 객체 속성 : window.screen.availHeight : 실제 이용 가능한 화면의 세로 값을 가져오기</a></li>
+                    <li><a href="#c">브라우저 객체 : screen 객체 속성 : window.screen.colorDepth : 사용 가능한 색상 수 가져오기</a></li>
+                    <li><a href="#c">브라우저 객체 : screen 객체 속성 : window.screen.pixelDepth : 한 픽셀당 비트 수 가져오기</a></li>
+                    <br>
+                    <li>브라우저 객체 : navigator 객체 속성 : navigator.appCodeName : 브라우저의 코드명을 반환</li>
+                    <li>브라우저 객체 : navigator 객체 속성 : navigator.appName : 브라우저의 이름을 반환</li>
+                    <li>브라우저 객체 : navigator 객체 속성 : navigator.appVersion : 브라우저의 버전을 반환</li>
+                    <li>브라우저 객체 : navigator 객체 속성 : navigator.cookieEnabled : 브라우저의 쿠키 사용 가능 여부를 반환</li>
+                    <li>브라우저 객체 : navigator 객체 속성 : navigator.language : 브라우저에서 사용되는 언어를 반환</li>
+                    <li>브라우저 객체 : navigator 객체 속성 : navigator.onLine : 브라우저가 온라인인지 여부를 반환</li>
+                    <li>브라우저 객체 : navigator 객체 속성 : navigator.platform : 브라우저가 실행되는 플랫폼 정보를 반환</li>
+                    <li>브라우저 객체 : navigator 객체 속성 : navigator.product : 브라우저에서 사용되는 엔진 이름을 반환</li>
+                    <li>브라우저 객체 : navigator 객체 속성 : navigator.userAgent : 브라우저와 운영체제 정보를 반환</li>
+                    <li>브라우저 객체 : navigator 객체 속성 : navigator.onLine : 네트워크 상태 가져오기(225)</li>
+                </ol>
+            </div>
+        </main>
+    </div>
+
+    <hr>
+
+    <!-- sample01 -->
+    <div id="sample01" class="sample">
+        <h2>01. 브라우저 객체 : window.alert() : 알림창<span class="dot"></span></h2>
+        <div class="btn">
+            <a href="#c" class="btn1-1">클릭하면 알림창을 표시합니다.</a>
+        </div>
+        <div class="code">
+            <pre class="line-numbers"><code class="language-js">{
+    document.querySelector(".btn1-1").addEventListener("click", function(){
+        alert("알림창");
+    });
+}
+</code></pre>
+        </div>
+    </div>
+    <hr>
+    <script>
+        document.querySelector(".btn1-1").addEventListener("click", function () {
+            alert("알림창");
+        });
+    </script>
+    <!-- sample01 -->
+
+    <!-- sample02 -->
+    <div id="sample02" class="sample">
+        <h2>02. 브라우저 객체 : window.confirm() : 확인창<span class="dot"></span></h2>
+        <div class="view ex2">
+            <p class="text text2">여기는 텍스트 영역입니다.</p>
+        </div>
+        <div class="btn">
+            <a href="#c" class="btn2-1">클릭하면 확인창을 표시합니다.</a>
+        </div>
+        <div class="code">
+            <pre class="line-numbers"><code class="language-js">{
+    const btn = document.querySelector(".btn2-1");
+    btn.addEventListener("click", () => {
+        const text = confirm("오늘 공부할 준비가 되었나요?");   //true, false
+
+        //document.querySelector(".text2").innerHTML = text;
+        //만약에 true가 나오면 "오늘 공부할 준비가 되었습니다."
+        //만약에 false가 나오면 "오늘 몸이 안 좋아요."
+        if(text){
+            document.querySelector(".text2").innerHTML = "오늘 공부할 준비가 되었습니다."
+        } else {
+            document.querySelector(".text2").innerHTML = "오늘 몸이 안 좋아요."
+        }
+    });
+}
+</code></pre>
+        </div>
+    </div>
+    <hr>
+    <script>
+        const btn = document.querySelector(".btn2-1");
+        btn.addEventListener("click", () => {
+            const text = confirm("오늘 공부할 준비가 되었나요?"); //true, false
+
+            //document.querySelector(".text2").innerHTML = text;
+            //만약에 true가 나오면 "오늘 공부할 준비가 되었습니다."
+            //만약에 false가 나오면 "오늘 몸이 안 좋아요."
+            if (text) {
+                document.querySelector(".text2").innerHTML = "오늘 공부할 준비가 되었습니다."
+            } else {
+                document.querySelector(".text2").innerHTML = "오늘 몸이 안 좋아요."
+            }
+        });
+    </script>
+    <!-- sample02 -->
+
+    <!-- sample03 -->
+    <div id="sample03" class="sample">
+        <h2>03. 브라우저 객체 : window.prompt() : 입력창<span class="dot"></span></h2>
+        <div class="view ex3">
+            <p class="text text3">여기는 텍스트 영역입니다.</p>
+        </div>
+        <div class="btn">
+            <a href="#c" class="btn3-1">클릭하면 확인창을 표시합니다.</a>
+        </div>
+        <div class="code">
+            <pre class="line-numbers"><code class="language-js">{
+    document.querySelector(".btn3-1").addEventListener("click", function () {
+        const text = prompt("오늘 공부할 준비가 되었나요?");
+
+        document.querySelector(".text3").innerHTML = text;
+    });
+}
+</code></pre>
+        </div>
+    </div>
+    <hr>
+    <script>
+        document.querySelector(".btn3-1").addEventListener("click", function () {
+            const text = prompt("오늘 공부할 준비가 되었나요?");
+
+            document.querySelector(".text3").innerHTML = text;
+        });
+    </script>
+    <!-- sample03 -->
+
+    <!-- sample04 -->
+    <div id="sample04" class="sample">
+        <h2>04. 브라우저 객체 : window.innerWidth() / window.innerHeight()<span class="dot"></span></h2>
+        <div class="view ex4">
+            <p class="text text4-1"></p>
+            <p class="text text4-2"></p>
+            <p class="text text4-3"></p>
+            <p class="text text4-4"></p>
+            <p class="text text4-5"></p>
+            <p class="text text4-6"></p>
+            <p class="text text4-7"></p>
+            <p class="text text4-8"></p>
+        </div>
+        <div class="btn">
+            <a href="#c" class="btn4-1">클릭하면 브라우저 화면의 가로 값(innerWidth)을 가져옵니다.</a>
+            <a href="#c" class="btn4-2">클릭하면 브라우저 화면의 세로 값(innerHeight)을 가져옵니다.</a>
+            <a href="#c" class="btn4-3">클릭하면 브라우저 전체의 가로 값(outerWidth)을 가져옵니다.</a>
+            <a href="#c" class="btn4-4">클릭하면 브라우저 전체의 세로 값(outerHeight)을 가져옵니다.</a>
+            <a href="#c" class="btn4-5">클릭하면 브라우저 위쪽의 위치 값(screenTop)을 가져옵니다.</a>
+            <a href="#c" class="btn4-6">클릭하면 브라우저 왼쪽의 위치 값(screenLeft)을 가져옵니다.</a>
+            <a href="#c" class="btn4-7">클릭하면 브라우저 위쪽의 위치 값(screenY)을 가져옵니다.</a>
+            <a href="#c" class="btn4-8">클릭하면 브라우저 왼쪽의 위치 값(screenX)을 가져옵니다.</a>
+        </div>
+        <div class="code">
+            <pre class="line-numbers"><code class="language-js">{
+    const btn1 = document.querySelector(".btn4-1");
+    const btn2 = document.querySelector(".btn4-2");
+    const btn3 = document.querySelector(".btn4-3");
+    const btn4 = document.querySelector(".btn4-4");
+    const btn5 = document.querySelector(".btn4-5");
+    const btn6 = document.querySelector(".btn4-6");
+    const btn7 = document.querySelector(".btn4-7");
+    const btn8 = document.querySelector(".btn4-8");
+
+    const innerW = window.innerWidth;
+    const innerH = window.innerHeight;
+    const outerW = window.outerWidth;
+    const outerH = window.outerHeight;
+    const screenT = window.screenTop;
+    const screenL = window.screenLeft;
+    const screenY = window.screenY;
+    const screenX = window.screenX;
+
+    btn1.addEventListener("click", function () {
+        document.querySelector(".text4-1").innerHTML = "당신이 보고 있는 브라우저의 화면 가로 값(innerWidth)은 " + innerW + " px 입니다."
+    });
+    btn2.addEventListener("click", function () {
+        document.querySelector(".text4-2").innerHTML = "당신이 보고 있는 브라우저의 화면 세로 값(innerHeight)은 " + innerH + " px 입니다."
+    });
+    btn3.addEventListener("click", function () {
+        document.querySelector(".text4-3").innerHTML = "당신이 보고 있는 브라우저의 전체 가로 값(outerWidth)은 " + outerW + " px 입니다."
+    });
+    btn4.addEventListener("click", function () {
+        document.querySelector(".text4-4").innerHTML = "당신이 보고 있는 브라우저의 전체 세로 값(outerHeight)은 " + outerH + " px 입니다."
+    });
+    btn5.addEventListener("click", function () {
+        document.querySelector(".text4-5").innerHTML = "당신이 보고 있는 브라우저 위쪽의 위치 값(screenTop)은 " + screenT + " px 입니다."
+    });
+    btn6.addEventListener("click", function () {
+        document.querySelector(".text4-6").innerHTML = "당신이 보고 있는 브라우저의 왼쪽의 위치 값(screenLeft)은 " + screenL + " px 입니다."
+    });
+    btn7.addEventListener("click", function () {
+        document.querySelector(".text4-7").innerHTML = "당신이 보고 있는 브라우저 위쪽의 위치 값(screenY)은 " + screenY + " px 입니다."
+    });
+    btn8.addEventListener("click", function () {
+        document.querySelector(".text4-8").innerHTML = "당신이 보고 있는 브라우저 왼쪽의 위치 값은(screenX) " + screenX + " px 입니다."
+    });
+
+    window.addEventListener("resize", () => {
+        const innerW = window.innerWidth;
+        const innerH = window.innerHeight;
+        const outerW = window.outerWidth;
+        const outerH = window.outerHeight;
+        const screenT = window.screenTop;
+        const screenL = window.screenLeft;
+        const screenY = window.screenY;
+        const screenX = window.screenX;
+
+        document.querySelector(".text4-1").innerHTML = "당신이 보고 있는 브라우저의 화면 가로 값(innerWidth)은 " + innerW +
+            " px 입니다."
+        document.querySelector(".text4-2").innerHTML = "당신이 보고 있는 브라우저의 화면 세로 값(innerHeight)은 " + innerH +
+            " px 입니다."
+        document.querySelector(".text4-3").innerHTML = "당신이 보고 있는 브라우저의 전체 가로 값(outerWidth)은 " + outerW +
+            " px 입니다."
+        document.querySelector(".text4-4").innerHTML = "당신이 보고 있는 브라우저의 전체 세로 값(outerHeight)은 " + outerH +
+            " px 입니다."
+        document.querySelector(".text4-5").innerHTML = "당신이 보고 있는 브라우저 위쪽의 위치 값(screenTop)은 " + screenT +
+            " px 입니다."
+        document.querySelector(".text4-6").innerHTML = "당신이 보고 있는 브라우저의 왼쪽의 위치 값(screenLeft)은 " + screenL +
+            " px 입니다."
+        document.querySelector(".text4-7").innerHTML = "당신이 보고 있는 브라우저 위쪽의 위치 값(screenY)은 " + screenY +
+            " px 입니다."
+        document.querySelector(".text4-8").innerHTML = "당신이 보고 있는 브라우저 왼쪽의 위치 값은(screenX) " + screenX +
+            " px 입니다."
+    });
+}
+</code></pre>
+        </div>
+    </div>
+    <hr>
+    <script>
+        const btn1 = document.querySelector(".btn4-1");
+        const btn2 = document.querySelector(".btn4-2");
+        const btn3 = document.querySelector(".btn4-3");
+        const btn4 = document.querySelector(".btn4-4");
+        const btn5 = document.querySelector(".btn4-5");
+        const btn6 = document.querySelector(".btn4-6");
+        const btn7 = document.querySelector(".btn4-7");
+        const btn8 = document.querySelector(".btn4-8");
+
+        const innerW = window.innerWidth;
+        const innerH = window.innerHeight;
+        const outerW = window.outerWidth;
+        const outerH = window.outerHeight;
+        const screenT = window.screenTop;
+        const screenL = window.screenLeft;
+        const screenY = window.screenY;
+        const screenX = window.screenX;
+
+        btn1.addEventListener("click", function () {
+            document.querySelector(".text4-1").innerHTML = "당신이 보고 있는 브라우저의 화면 가로 값(innerWidth)은 " + innerW +
+                " px 입니다."
+        });
+        btn2.addEventListener("click", function () {
+            document.querySelector(".text4-2").innerHTML = "당신이 보고 있는 브라우저의 화면 세로 값(innerHeight)은 " + innerH +
+                " px 입니다."
+        });
+        btn3.addEventListener("click", function () {
+            document.querySelector(".text4-3").innerHTML = "당신이 보고 있는 브라우저의 전체 가로 값(outerWidth)은 " + outerW +
+                " px 입니다."
+        });
+        btn4.addEventListener("click", function () {
+            document.querySelector(".text4-4").innerHTML = "당신이 보고 있는 브라우저의 전체 세로 값(outerHeight)은 " + outerH +
+                " px 입니다."
+        });
+        btn5.addEventListener("click", function () {
+            document.querySelector(".text4-5").innerHTML = "당신이 보고 있는 브라우저 위쪽의 위치 값(screenTop)은 " + screenT +
+                " px 입니다."
+        });
+        btn6.addEventListener("click", function () {
+            document.querySelector(".text4-6").innerHTML = "당신이 보고 있는 브라우저의 왼쪽의 위치 값(screenLeft)은 " + screenL +
+                " px 입니다."
+        });
+        btn7.addEventListener("click", function () {
+            document.querySelector(".text4-7").innerHTML = "당신이 보고 있는 브라우저 위쪽의 위치 값(screenY)은 " + screenY +
+                " px 입니다."
+        });
+        btn8.addEventListener("click", function () {
+            document.querySelector(".text4-8").innerHTML = "당신이 보고 있는 브라우저 왼쪽의 위치 값은(screenX) " + screenX +
+                " px 입니다."
+        });
+
+        window.addEventListener("resize", () => {
+            const innerW = window.innerWidth;
+            const innerH = window.innerHeight;
+            const outerW = window.outerWidth;
+            const outerH = window.outerHeight;
+            const screenT = window.screenTop;
+            const screenL = window.screenLeft;
+            const screenY = window.screenY;
+            const screenX = window.screenX;
+
+            document.querySelector(".text4-1").innerHTML = "당신이 보고 있는 브라우저의 화면 가로 값(innerWidth)은 " + innerW +
+                " px 입니다."
+            document.querySelector(".text4-2").innerHTML = "당신이 보고 있는 브라우저의 화면 세로 값(innerHeight)은 " + innerH +
+                " px 입니다."
+            document.querySelector(".text4-3").innerHTML = "당신이 보고 있는 브라우저의 전체 가로 값(outerWidth)은 " + outerW +
+                " px 입니다."
+            document.querySelector(".text4-4").innerHTML = "당신이 보고 있는 브라우저의 전체 세로 값(outerHeight)은 " + outerH +
+                " px 입니다."
+            document.querySelector(".text4-5").innerHTML = "당신이 보고 있는 브라우저 위쪽의 위치 값(screenTop)은 " + screenT +
+                " px 입니다."
+            document.querySelector(".text4-6").innerHTML = "당신이 보고 있는 브라우저의 왼쪽의 위치 값(screenLeft)은 " + screenL +
+                " px 입니다."
+            document.querySelector(".text4-7").innerHTML = "당신이 보고 있는 브라우저 위쪽의 위치 값(screenY)은 " + screenY +
+                " px 입니다."
+            document.querySelector(".text4-8").innerHTML = "당신이 보고 있는 브라우저 왼쪽의 위치 값은(screenX) " + screenX +
+                " px 입니다."
+        });
+    </script>
+    <!-- sample04 -->
+
+    <!-- sample05 -->
+    <div id="sample05" class="sample">
+        <h2>05. 브라우저 객체 : screen 객체 속성<span class="dot"></span></h2>
+        <div class="view ex4">
+            <p class="text text5-1"></p>
+            <p class="text text5-2"></p>
+            <p class="text text5-3"></p>
+            <p class="text text5-4"></p>
+            <p class="text text5-5"></p>
+            <p class="text text5-6"></p>
+        </div>
+        <div class="btn">
+            <a href="#c" class="btn5-1">클릭하면 화면의 가로 값을 가져옵니다.</a>
+            <a href="#c" class="btn5-2">클릭하면 화면의 세로 값을 가져옵니다.</a>
+            <a href="#c" class="btn5-3">클릭하면 실제 이용 가능한 화면의 가로 값을 가져옵니다.</a>
+            <a href="#c" class="btn5-4">클릭하면 실제 이용 가능한 화면의 세로 값을 가져옵니다.</a>
+            <a href="#c" class="btn5-5">클릭하면 사용 가능한 색상 수를 가져옵니다.</a>
+            <a href="#c" class="btn5-6">클릭하면 픽셀당 비트 수를 가져옵니다.</a>
+        </div>
+        <div class="code">
+            <pre class="line-numbers"><code class="language-js">{
+    const btn51 = document.querySelector(".btn5-1");
+    const btn52 = document.querySelector(".btn5-2");
+    const btn53 = document.querySelector(".btn5-3");
+    const btn54 = document.querySelector(".btn5-4");
+    const btn55 = document.querySelector(".btn5-5");
+    const btn56 = document.querySelector(".btn5-6");
+
+    let screenWidth = screen.width;
+    let screenHeight = screen.height;
+    let screenAvailWidth = screen.availWidth;
+    let screenAvailHeight = screen.availHeight;
+    let colorDepth = screen.colorDepth;
+    let pixelDepth = screen.pixelDepth;
+
+    btn51.addEventListener("click", function () {
+        document.querySelector(".text5-1").innerHTML = screenWidth;
+    });
+    btn52.addEventListener("click", function () {
+        document.querySelector(".text5-2").innerHTML = screenHeight;
+    });
+    btn53.addEventListener("click", function () {
+        document.querySelector(".text5-3").innerHTML = screenAvailWidth;
+    });
+    btn54.addEventListener("click", function () {
+        document.querySelector(".text5-4").innerHTML = screenAvailHeight;
+    });
+    btn55.addEventListener("click", function () {
+        document.querySelector(".text5-5").innerHTML = colorDepth;
+    });
+    btn56.addEventListener("click", function () {
+        document.querySelector(".text5-6").innerHTML = pixelDepth;
+    });
+
+    // let name = [screenWidth, screenHeight, screenAvailWidth, screenAvailHeight, colorDepth, pixelDepth];
+    // for(let i = 1; i&lt;=name.length; i++){
+    //     document.querySelector(".btn5-" + i).addEventListener("click", function(){
+    //         document.querySelector(".text5-" + i).innerHTML = name[i-1];
+    //     })
+    // }
+
+    // let name = [screenWidth, screenHeight, screenAvailWidth, screenAvailHeight, colorDepth, pixelDepth];
+    // name.forEach((element, index)=&gt;{
+    //     document.querySelector(`.btn5-${index + 1}`).addEventListener("click", function(){
+    //         document.querySelector(`.text5-${index + 1}`).innerHTML = name[index];
+    //     });
+    // })
+}
+</code></pre>
+        </div>
+    </div>
+    <hr>
+    <script>
+        const btn51 = document.querySelector(".btn5-1");
+        const btn52 = document.querySelector(".btn5-2");
+        const btn53 = document.querySelector(".btn5-3");
+        const btn54 = document.querySelector(".btn5-4");
+        const btn55 = document.querySelector(".btn5-5");
+        const btn56 = document.querySelector(".btn5-6");
+
+        let screenWidth = screen.width;
+        let screenHeight = screen.height;
+        let screenAvailWidth = screen.availWidth;
+        let screenAvailHeight = screen.availHeight;
+        let colorDepth = screen.colorDepth;
+        let pixelDepth = screen.pixelDepth;
+
+        btn51.addEventListener("click", function () {
+            document.querySelector(".text5-1").innerHTML = screenWidth;
+        });
+        btn52.addEventListener("click", function () {
+            document.querySelector(".text5-2").innerHTML = screenHeight;
+        });
+        btn53.addEventListener("click", function () {
+            document.querySelector(".text5-3").innerHTML = screenAvailWidth;
+        });
+        btn54.addEventListener("click", function () {
+            document.querySelector(".text5-4").innerHTML = screenAvailHeight;
+        });
+        btn55.addEventListener("click", function () {
+            document.querySelector(".text5-5").innerHTML = colorDepth;
+        });
+        btn56.addEventListener("click", function () {
+            document.querySelector(".text5-6").innerHTML = pixelDepth;
+        });
+
+        // let name = [screenWidth, screenHeight, screenAvailWidth, screenAvailHeight, colorDepth, pixelDepth];
+        // for(let i = 1; i<=name.length; i++){
+        //     document.querySelector(".btn5-" + i).addEventListener("click", function(){
+        //         document.querySelector(".text5-" + i).innerHTML = name[i-1];
+        //     })
+        // }
+
+        // let name = [screenWidth, screenHeight, screenAvailWidth, screenAvailHeight, colorDepth, pixelDepth];
+        // name.forEach((element, index)=>{
+        //     document.querySelector(`.btn5-${index + 1}`).addEventListener("click", function(){
+        //         document.querySelector(`.text5-${index + 1}`).innerHTML = name[index];
+        //     });
+        // })
+
+    </script>
+    <!-- sample05 -->
+
+    <!-- sample06 -->
+    <div id="sample06" class="sample">
+        <h2>06. 브라우저 객체 : navigator 객체 속성<span class="dot"></span></h2>
+        <div class="view ex4">
+            <p class="text text6-1"></p>
+            <p class="text text6-2"></p>
+            <p class="text text6-3"></p>
+            <p class="text text6-4"></p>
+            <p class="text text6-5"></p>
+            <p class="text text6-6"></p>
+            <p class="text text6-7"></p>
+            <p class="text text6-8"></p>
+            <p class="text text6-9"></p>
+        </div>
+        <div class="btn">
+            <a href="#c" class="btn6-1">클릭하면 브라우저의 코드명을 가져옵니다.</a>
+            <a href="#c" class="btn6-2">클릭하면 브라우저의 이름을 가져옵니다.</a>
+            <a href="#c" class="btn6-3">클릭하면 브라우저의 버전을 가져옵니다.</a>
+            <a href="#c" class="btn6-4">클릭하면 쿠키 사용 가능 여부 정보를 가져옵니다.</a>
+            <a href="#c" class="btn6-5">클릭하면 브라우저에서 사용되는 언어 정보를 가져옵니다.</a>
+            <a href="#c" class="btn6-6">클릭하면 온라인 여부 정보를 가져옵니다.</a>
+            <a href="#c" class="btn6-7">클릭하면 플랫폼 정보를 가져옵니다.</a>
+            <a href="#c" class="btn6-8">클릭하면 브라우저 엔진 이름을 가져옵니다.</a>
+            <a href="#c" class="btn6-9">클릭하면 운영체제 정보를 가져옵니다.</a>
+        </div>
+        <div class="code">
+            <pre class="line-numbers"><code class="language-js">{
+    const btn61 = document.querySelector(".btn6-1");
+    const btn62 = document.querySelector(".btn6-2");
+    const btn63 = document.querySelector(".btn6-3");
+    const btn64 = document.querySelector(".btn6-4");
+    const btn65 = document.querySelector(".btn6-5");
+    const btn66 = document.querySelector(".btn6-6");
+    const btn67 = document.querySelector(".btn6-7");
+    const btn68 = document.querySelector(".btn6-8");
+    const btn69 = document.querySelector(".btn6-9");
+
+    var nowAppCodeName = navigator.appCodeName;
+    var nowAppName = navigator.appName;
+    var nowAppVersion = navigator.appVersion;
+    var nowCookieEnabled = navigator.cookieEnabled;
+    var nowLanguage = navigator.language;
+    var nowOnLine = navigator.onLine;
+    var nowPlatform = navigator.platform;
+    var nowProduct = navigator.product;
+    var nowUserAgent = navigator.userAgent;
+
+    btn61.addEventListener("click", ()=&gt;{
+            document.querySelector(".text6-1").innerHTML = nowAppCodeName;
+        });
+    btn62.addEventListener("click", ()=&gt;{
+            document.querySelector(".text6-2").innerHTML = nowAppName;
+        });
+    btn63.addEventListener("click", ()=&gt;{
+            document.querySelector(".text6-3").innerHTML = nowAppVersion;
+        });
+    btn64.addEventListener("click", ()=&gt;{
+            document.querySelector(".text6-4").innerHTML = nowCookieEnabled;
+        });
+    btn65.addEventListener("click", ()=&gt;{
+            document.querySelector(".text6-5").innerHTML = nowLanguage;
+        });
+    btn66.addEventListener("click", ()=&gt;{
+            document.querySelector(".text6-6").innerHTML = nowOnLine;
+        });
+    btn67.addEventListener("click", ()=&gt;{
+            document.querySelector(".text6-7").innerHTML = nowPlatform;
+        });
+    btn68.addEventListener("click", ()=&gt;{
+            document.querySelector(".text6-8").innerHTML = nowProduct;
+        });
+    btn69.addEventListener("click", ()=&gt;{
+            document.querySelector(".text6-9").innerHTML = nowUserAgent;
+        });
+
+    // const nav = [nowAppCodeName, nowAppName, nowAppVersion, nowCookieEnabled, nowLanguage, nowOnLine, nowPlatform, nowProduct, nowUserAgent];
+
+    // for(let i = 0; i &lt;= nav.length; i++){
+    //     document.querySelector(".btn6-" + (i+1)).addEventListener("click", function(){
+    //         document.querySelector(".text6-" + (i+1)).innerHTML = nav[i];
+    //     });
+    // }
+
+    // nav.forEach((el, i)=&gt;{
+    //     document.querySelector(".btn6-" + (i+1)).addEventListener("click", function(){
+    //         document.querySelector(".text6-" + (i+1)).innerHTML = nav[i]
+    //     });
+    // });
+}
+</code></pre>
+        </div>
+    </div>
+    <hr>
+    <script>
+        const btn61 = document.querySelector(".btn6-1");
+        const btn62 = document.querySelector(".btn6-2");
+        const btn63 = document.querySelector(".btn6-3");
+        const btn64 = document.querySelector(".btn6-4");
+        const btn65 = document.querySelector(".btn6-5");
+        const btn66 = document.querySelector(".btn6-6");
+        const btn67 = document.querySelector(".btn6-7");
+        const btn68 = document.querySelector(".btn6-8");
+        const btn69 = document.querySelector(".btn6-9");
+
+        var nowAppCodeName = navigator.appCodeName;
+        var nowAppName = navigator.appName;
+        var nowAppVersion = navigator.appVersion;
+        var nowCookieEnabled = navigator.cookieEnabled;
+        var nowLanguage = navigator.language;
+        var nowOnLine = navigator.onLine;
+        var nowPlatform = navigator.platform;
+        var nowProduct = navigator.product;
+        var nowUserAgent = navigator.userAgent;
+
+        btn61.addEventListener("click", ()=>{
+                document.querySelector(".text6-1").innerHTML = nowAppCodeName;
+        });
+        btn62.addEventListener("click", ()=>{
+                document.querySelector(".text6-2").innerHTML = nowAppName;
+        });
+        btn63.addEventListener("click", ()=>{
+                document.querySelector(".text6-3").innerHTML = nowAppVersion;
+        });
+        btn64.addEventListener("click", ()=>{
+                document.querySelector(".text6-4").innerHTML = nowCookieEnabled;
+        });
+        btn65.addEventListener("click", ()=>{
+                document.querySelector(".text6-5").innerHTML = nowLanguage;
+        });
+        btn66.addEventListener("click", ()=>{
+                document.querySelector(".text6-6").innerHTML = nowOnLine;
+        });
+        btn67.addEventListener("click", ()=>{
+                document.querySelector(".text6-7").innerHTML = nowPlatform;
+        });
+        btn68.addEventListener("click", ()=>{
+                document.querySelector(".text6-8").innerHTML = nowProduct;
+        });
+        btn69.addEventListener("click", ()=>{
+                document.querySelector(".text6-9").innerHTML = nowUserAgent;
+        });
+
+        // const nav = [nowAppCodeName, nowAppName, nowAppVersion, nowCookieEnabled, nowLanguage, nowOnLine, nowPlatform, nowProduct, nowUserAgent];
+        
+        // for(let i = 0; i <= nav.length; i++){
+        //     document.querySelector(".btn6-" + (i+1)).addEventListener("click", function(){
+        //         document.querySelector(".text6-" + (i+1)).innerHTML = nav[i];
+        //     });
+        // }
+
+        // nav.forEach((el, i)=>{
+        //     document.querySelector(".btn6-" + (i+1)).addEventListener("click", function(){
+        //         document.querySelector(".text6-" + (i+1)).innerHTML = nav[i]
+        //     });
+        // });
+    </script>
+    <!-- sample06 -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.0/prism.min.js"></script>
+    <script>
+        //sample01
+    </script>
+
+</body>
+
+</html>

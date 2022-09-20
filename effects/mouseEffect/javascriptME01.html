@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Effect</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/highlight.css">
+    <style>
+        .mouseCont {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #fff;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'NEXONLv1Gothic';
+            cursor: none;
+        }
+
+        .mouseCont p {
+            font-size: 2.5vw;
+            font-weight: 300;
+            line-height: 2.3;
+        }
+
+        .mouseCont h2 {
+            font-size: 3vw;
+            font-weight: 400;
+        }
+
+        .mouseCont span {
+            font-style: normal;
+            border-bottom: 0.2vw dashed #fff;
+        }
+
+        .cursor {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            z-index: 9999;
+            background-color: rgba(255, 255, 255, 0.1);
+            user-select: none;
+            pointer-events: none;
+            transition: 
+                background-color .2s,
+                border-color .2s,
+                border-radius .2s,
+                transform .6s;
+
+        }
+        .cursor.style1 {
+            background-color: rgba(255, 255, 0, 0.4);
+            border-color: orange;
+        }
+        .cursor.style2 {
+            background-color: rgba(140, 0, 0255, 0.4);
+            border-color: rgb(140, 0, 255);
+            transform: rotateY(720deg) scale(2);
+        }
+        .cursor.style3 {
+            background-color: rgba(91, 255, 41, 0.575);
+            border-color: rgb(36, 255, 36);
+            transform: skew(50deg, 50deg) rotateX(360deg);
+            border-radius: 25%;
+            
+        }
+        .cursor.style4 {
+            background-color: rgba(46, 196, 255, 0.609);
+            border-color: rgb(173, 255, 255);
+            transform: rotate3d(0,1,1,500deg) translateZ(30px) scaleY(3);
+        }
+        .cursor.style5 {
+            background-color: rgba(91, 255, 41, 0.575);
+            border-color: rgb(36, 255, 36);
+            transform: skew(50deg, 50deg) rotateX(360deg);
+            border-radius: 25%;
+            
+        }
+        .cursor.style6 {
+            background-color: rgba(46, 196, 255, 0.609);
+            border-color: rgb(173, 255, 255);
+            transform: rotate3d(0,1,1,500deg) translateZ(30px) scaleY(3);
+        }
+        .cursor.active {
+            background-color: rgba(250, 95, 255, 0.4);
+            border-color: pink;
+        }
+    
+    </style>
+</head>
+
+<body class="bg bg1 blue">
+    <!-- contents -->
+    <main>
+        <div class="cursor"></div>
+        <article class="mouseCont">
+            <p>No <span class="style1">great</span> man ever <span class="style2">complains</span> of want of <span class="style3">opportunity.</span></p>
+            <h2><span class="style4">위대한</span> 사람은 <span class="style5">기회</span>가 없다고 <span class="style6">원망하지</span> 않는다.</h2>
+        </article>
+    </main>
+    <!-- //contents -->
+
+    <!-- info -->
+    <div class="info">
+        <h1><a href="index.html">Mouse Effect01 - javascript</a></h1>
+        <p>마우스 이펙트 - 마우스 따라다니기</p>
+    </div>
+    <div class="info right">
+        <ul>
+            <li class="active"><a href="javascriptME01.html">1</a></li>
+            <li><a href="javascriptME02.html">2</a></li>
+            <li><a href="javascriptME03.html">3</a></li>
+            <li><a href="javascriptME04.html">4</a></li>
+            <li><a href="javascriptME05.html">5</a></li>
+            <li><a href="javascriptME06.html">6</a></li>
+            <li><a href="javascriptME07.html">7</a></li>
+            <li><a href="javascriptME08.html">8</a></li>
+        </ul>
+        <ul>
+            <li><a href="jqueryME01.html">1</a></li>
+            <li><a href="jqueryME02.html">2</a></li>
+            <li><a href="jqueryME03.html">3</a></li>
+            <li><a href="jqueryME04.html">4</a></li>
+            <li><a href="jqueryME05.html">5</a></li>
+            <li><a href="jqueryME06.html">6</a></li>
+            <li><a href="jqueryME07.html">7</a></li>
+            <li><a href="jqueryME08.html">8</a></li>
+        </ul>
+    </div>
+
+
+    <div class="info left list">
+        <ul>
+            <li>clientX : <span class="clientX">0</span></li>
+            <li>clientY : <span class="clientY">0</span></li>
+            <li>offsetX : <span class="offsetX">0</span></li>
+            <li>offsetY : <span class="offsetY">0</span></li>
+            <li>pageX : <span class="pageX">0</span></li>
+            <li>pageY : <span class="pageY">0</span></li>
+            <li>screenX : <span class="screenX">0</span></li>
+            <li>screenY : <span class="screenY">0</span></li>
+        </ul>
+    </div>
+
+    <div class="info bottom">
+        <button>소스보기</button>
+    </div>
+
+    <!-- //info -->
+
+    <!-- modal -->
+    <div id="modal">
+        <div class="modal-bg">
+            <div class="modal-cont">
+                <div class="code-view">
+                    <div class="view-header">
+                        <div class="dot" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="view-title">
+                        <ul>
+                            <li class="active"><a href="#">Html</a></li>
+                            <li><a href="#">CSS</a></li>
+                            <li><a href="#">JavaScript</a></li>
+                        </ul>
+                    </div>
+                    <div class="view-cont">
+                        <div class="html">
+                            <pre><code class="language-html">&lt;main&gt;
+    &lt;div class="cursor"&gt;&lt;/div&gt;
+    &lt;article class="mouseCont"&gt;
+        &lt;p&gt;No &lt;span class="style1"&gt;great&lt;/span&gt; man ever &lt;span class="style2"&gt;complains&lt;/span&gt; of want of &lt;span class="style3"&gt;opportunity.&lt;/span&gt;&lt;/p&gt;
+        &lt;h2&gt;&lt;span class="style4"&gt;위대한&lt;/span&gt; 사람은 &lt;span class="style5"&gt;기회&lt;/span&gt;가 없다고 &lt;span class="style6"&gt;원망하지&lt;/span&gt; 않는다.&lt;/h2&gt;
+    &lt;/article&gt;
+&lt;/main&gt;
+</code></pre>
+                        </div>
+                        <div class="css">
+                            <pre><code class="language-css">.mouseCont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'NEXONLv1Gothic';
+    cursor: none;
+}
+
+.mouseCont p {
+    font-size: 2.5vw;
+    font-weight: 300;
+    line-height: 2.3;
+}
+
+.mouseCont h2 {
+    font-size: 3vw;
+    font-weight: 400;
+}
+
+.mouseCont span {
+    font-style: normal;
+    border-bottom: 0.2vw dashed #fff;
+}
+
+.cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, 0.1);
+    user-select: none;
+    pointer-events: none;
+    transition: 
+        background-color .2s,
+        border-color .2s,
+        border-radius .2s,
+        transform .6s;
+
+}
+.cursor.style1 {
+    background-color: rgba(255, 255, 0, 0.4);
+    border-color: orange;
+}
+.cursor.style2 {
+    background-color: rgba(140, 0, 0255, 0.4);
+    border-color: rgb(140, 0, 255);
+    transform: rotateY(720deg) scale(2);
+}
+.cursor.style3 {
+    background-color: rgba(91, 255, 41, 0.575);
+    border-color: rgb(36, 255, 36);
+    transform: skew(50deg, 50deg) rotateX(360deg);
+    border-radius: 25%;
+    
+}
+.cursor.style4 {
+    background-color: rgba(46, 196, 255, 0.609);
+    border-color: rgb(173, 255, 255);
+    transform: rotate3d(0,1,1,500deg) translateZ(30px) scaleY(3);
+}
+.cursor.style5 {
+    background-color: rgba(91, 255, 41, 0.575);
+    border-color: rgb(36, 255, 36);
+    transform: skew(50deg, 50deg) rotateX(360deg);
+    border-radius: 25%;
+    
+}
+.cursor.style6 {
+    background-color: rgba(46, 196, 255, 0.609);
+    border-color: rgb(173, 255, 255);
+    transform: rotate3d(0,1,1,500deg) translateZ(30px) scaleY(3);
+}
+.cursor.active {
+    background-color: rgba(250, 95, 255, 0.4);
+    border-color: pink;
+}
+</code></pre>
+                        </div>
+                        <div class="javascript">
+                            <pre><code class="language-javascript">//출력용
+window.addEventListener("mousemove", function(e){
+    document.querySelector(".clientX").innerText = e.clientX + "px"; //브라우저 X좌표 기준
+    document.querySelector(".clientY").innerText = e.clientY + "px"; //브라우저 Y좌표 기준
+    document.querySelector(".offsetX").innerText = e.offsetX + "px"; //요소 X좌표 기준
+    document.querySelector(".offsetY").innerText = e.offsetY + "px"; //요소 Y좌표 기준
+    document.querySelector(".pageX").innerText = e.pageX + "px"; //페이지 X좌표 기준
+    document.querySelector(".pageY").innerText = e.pageY + "px"; //페이지 Y좌표 기준
+    document.querySelector(".screenX").innerText = e.screenX + "px"; //디바이스 X좌표 기준
+    document.querySelector(".screenY").innerText = e.screenY + "px"; //디바이스 Y좌표 기준
+});
+
+//마우스 움직이기
+window.addEventListener("mousemove", function(e){
+    // document.querySelector(".cursor").style.left = e.clientX -25 + "px";
+    // document.querySelector(".cursor").style.top = e.clientY -25 + "px";
+
+    let x = e.clientX-25 + "px";
+    let y = e.clientY-25 + "px";
+    document.querySelector(".cursor").style.cssText = "left:" + x + "; top:" + y;
+});
+
+//forEach()
+document.querySelectorAll(".mouseCont span").forEach((element, index)=>{
+    element.addEventListener("mouseover", ()=>{
+        document.querySelector(".cursor").classList.add("style" + (index + 1))
+    });
+    element.addEventListener("mouseout", ()=>{
+        document.querySelector(".cursor").classList.remove("style" + (index + 1))
+    });
+});
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <button>닫기</button>
+            </div>
+        </div>
+    </div>
+    <!-- //modal -->
+
+    <!-- script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="../assets/js/custom.js"></script>
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        //출력용
+        window.addEventListener("mousemove", function(e){
+            document.querySelector(".clientX").innerText = e.clientX + "px"; //브라우저 X좌표 기준
+            document.querySelector(".clientY").innerText = e.clientY + "px"; //브라우저 Y좌표 기준
+            document.querySelector(".offsetX").innerText = e.offsetX + "px"; //요소 X좌표 기준
+            document.querySelector(".offsetY").innerText = e.offsetY + "px"; //요소 Y좌표 기준
+            document.querySelector(".pageX").innerText = e.pageX + "px"; //페이지 X좌표 기준
+            document.querySelector(".pageY").innerText = e.pageY + "px"; //페이지 Y좌표 기준
+            document.querySelector(".screenX").innerText = e.screenX + "px"; //디바이스 X좌표 기준
+            document.querySelector(".screenY").innerText = e.screenY + "px"; //디바이스 Y좌표 기준
+        });
+
+        //마우스 움직이기
+        window.addEventListener("mousemove", function(e){
+            let x = e.clientX-25 + "px";
+            let y = e.clientY-25 + "px";
+            document.querySelector(".cursor").style.cssText = "left:" + x + "; top:" + y;
+        });
+
+        //forEach()
+        document.querySelectorAll(".mouseCont span").forEach((element, index)=>{
+            element.addEventListener("mouseover", ()=>{
+                document.querySelector(".cursor").classList.add("style" + (index + 1))
+            });
+            element.addEventListener("mouseout", ()=>{
+                document.querySelector(".cursor").classList.remove("style" + (index + 1))
+            });
+        });
+    </script>
+    <!-- //script -->
+</body>
+
+</html>

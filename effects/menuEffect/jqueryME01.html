@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Effect</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/highlight.css">
+    <style>
+        #tab-menu {
+            max-width: 600px;
+            background: rgba(36, 72, 121, 0.74);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 5px;
+            overflow: hidden;
+            font-family: 'NEXONLv2Gothic';
+            color: rgb(255, 255, 255);
+        }
+        .tab-btn ul {
+            display: flex;
+        }
+        .tab-btn li {
+            width: 20%;
+            list-style: none;
+            text-align: center;
+        }
+        .tab-btn li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 18px 15px 15px 15px;
+            display: block;
+        }
+        .tab-btn li.active a {
+            border-bottom: 3px solid rgb(58, 143, 255);
+            color: rgb(58, 143, 255);
+        }
+        .tab-cont {
+            background: #fff;
+            padding: 20px;
+            color: #222;
+        }
+        .tab-cont > div {
+            display: none;
+        }
+        .tab-cont > div:first-child {
+            display: block;
+        }
+        .tab-cont > div h2 {
+            margin-bottom: 10px;
+        }
+        .tab-cont > div p {
+            line-height: 1.6;
+            word-break: keep-all;
+        }
+        @media(max-width:800px) {
+            .tab-cont {
+                width: 70vw;
+                padding: 15px;
+            }
+            .tab-btn li a {
+                font-size: 15px;
+            }
+            .tab-cont > div h2 {
+                font-size: 20px;
+            }
+            .tab-cont > div p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg bg1">
+    <!-- contents -->
+    <main>
+        <div id="tab-menu">
+            <div class="tab-btn">
+                <ul>
+                    <li class="active"><a href="#">Tab1</a></li>
+                    <li><a href="#">Tab2</a></li>
+                    <li><a href="#">Tab3</a></li>
+                    <li><a href="#">Tab4</a></li>
+                    <li><a href="#">Tab5</a></li>
+                </ul>
+            </div>
+            <div class="tab-cont">
+                <div>
+                    <h2>양귀자, 모순</h2>
+                    <p>오래도록 전화벨이 울리지 않으면 고장을 의심하게 만드는 것, 그것이 사랑이다.</p>
+                </div>
+                <div>
+                    <h2>앙투안 드 생텍쥐페리, 어린왕자</h2>
+                    <p>수백만 개의 별 중에서 그 별 어딘가에 피어 있는 꽃을 사랑한다면 그 사람은 별들을 바라보는 것만으로도 행복할 거야.</p>
+                </div>
+                <div>
+                    <h2>알퐁스 도데, 별</h2>
+                    <p>
+                        당신이 이름다운 별빛을 받으며 밤을 지새운 적이 있다면, 우리가 자고 있는 시간에 고독함과 적막함 속에서 신비로운 세계가 깨어난다는 것을 알 것이다.
+                    </p>
+                </div>
+                <div>
+                    <h2>손원평, 아몬드</h2>
+                    <p>
+                        나에겐 아몬드가 있다. 당신에게도 있다. 당신이 가장 소중하게 여기거나 가장 저주하는 누군가도 그것을 가졌다. 아무도 그것을 느낄 수는 없다. 그저 그것이 있음을 알고 있을 뿐이다.
+                    </p>
+                </div>
+                <div>
+                    <h2>김초엽, 순례자들은 왜 돌아오지 않는가</h2>
+                    <p>
+                        떠나겠다고 대답했을 때 그는 내가 보았던 그의 수많은 불행의 얼굴들 중 가장 나은 미소를 짓고 있었지.
+                        그때 나는 알았어. 우리는 그곳에서 괴로울 거야. 하지만 그보다 많이 행복할 거야.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- //contents -->
+
+    <!-- info -->
+    <div class="info">
+        <h1>jQuery Menu Effect01</h1>
+        <p>메뉴 이펙트 - 탭 메뉴</p>
+    </div>
+    <div class="info right">
+        <ul>
+            <li><a href="javascriptME01.html">1</a></li>
+        </ul>
+        <ul>
+            <li class="active"><a href="jqueryME01.html">1</a></li>
+        </ul>
+    </div>
+
+
+    <div class="info bottom">
+        <button>소스보기</button>
+    </div>
+
+    <!-- //info -->
+
+    <!-- modal -->
+    <div id="modal">
+        <div class="modal-bg">
+            <div class="modal-cont">
+                <div class="code-view">
+                    <div class="view-header">
+                        <div class="dot" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="view-title">
+                        <ul>
+                            <li class="active"><a href="#">Html</a></li>
+                            <li><a href="#">CSS</a></li>
+                            <li><a href="#">Javascript</a></li>
+                        </ul>
+                    </div>
+                    <div class="view-cont">
+                        <div class="html">
+<pre><code class="language-html">&lt;div id="tab-menu"&gt;
+    &lt;div class="tab-btn"&gt;
+        &lt;ul&gt;
+            &lt;li class="active"&gt;&lt;a href="#"&gt;Tab1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Tab2&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Tab3&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Tab4&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Tab5&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class="tab-cont"&gt;
+        &lt;div&gt;
+            &lt;h2&gt;양귀자, 모순&lt;/h2&gt;
+            &lt;p&gt;오래도록 전화벨이 울리지 않으면 고장을 의심하게 만드는 것, 그것이 사랑이다.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;h2&gt;앙투안 드 생텍쥐페리, 어린왕자&lt;/h2&gt;
+            &lt;p&gt;수백만 개의 별 중에서 그 별 어딘가에 피어 있는 꽃을 사랑한다면 그 사람은 별들을 바라보는 것만으로도 행복할 거야.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;h2&gt;알퐁스 도데, 별&lt;/h2&gt;
+            &lt;p&gt;
+                당신이 이름다운 별빛을 받으며 밤을 지새운 적이 있다면, 우리가 자고 있는 시간에 고독함과 적막함 속에서 신비로운 세계가 깨어난다는 것을 알 것이다.
+            &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;h2&gt;손원평, 아몬드&lt;/h2&gt;
+            &lt;p&gt;
+                나에겐 아몬드가 있다. 당신에게도 있다. 당신이 가장 소중하게 여기거나 가장 저주하는 누군가도 그것을 가졌다. 아무도 그것을 느낄 수는 없다. 그저 그것이 있음을 알고 있을 뿐이다.
+            &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;h2&gt;김초엽, 순례자들은 왜 돌아오지 않는가&lt;/h2&gt;
+            &lt;p&gt;
+                떠나겠다고 대답했을 때 그는 내가 보았던 그의 수많은 불행의 얼굴들 중 가장 나은 미소를 짓고 있었지.
+                그때 나는 알았어. 우리는 그곳에서 괴로울 거야. 하지만 그보다 많이 행복할 거야.
+            &lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                        </div>
+                        <div class="css">
+<pre><code class="language-css">#tab-menu {
+    max-width: 600px;
+    background: rgba(46, 189, 194, 0.651);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: 'NEXONLv2Gothic';
+    color: #fff;
+}
+.tab-btn ul {
+    display: flex;
+}
+.tab-btn li {
+    width: 20%;
+    list-style: none;
+    text-align: center;
+}
+.tab-btn li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 18px 15px 15px 15px;
+    display: block;
+}
+.tab-btn li.active a {
+    border-bottom: 3px solid #000;
+    color: #000;
+}
+.tab-cont {
+    background: #fff;
+    padding: 20px;
+    color: #222
+}
+.tab-cont &gt; div {
+    display: none;
+}
+.tab-cont &gt; div:first-child {
+    display: block;
+}
+.tab-cont &gt; div h2 {
+    margin-bottom: 10px;
+}
+.tab-cont &gt; div p {
+    line-height: 1.6;
+}
+</code></pre>
+                        </div>
+                        <div class="javascript">
+<pre><code class="language-javascript">const viewTitle = $(".view-title ul li");
+const viewCont = $(".view-cont &gt; div");
+        
+viewTitle.click(function(){
+    let target = $(this);
+    viewTitle.removeClass("active");
+    target.addClass("active");
+
+    let index = target.index();
+    viewCont.css("display", "none");
+    viewCont.eq(index).css("display", "block");
+});
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <button>닫기</button>
+            </div>
+        </div>
+    </div>
+    <!-- //modal -->
+
+    <!-- script -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/custom.js"></script>
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        const tabBtn = $(".tab-btn ul li");     //5개의 버튼을 변수에 할당
+        const tabCont = $(".tab-cont > div");   //5개의 컨텐츠를 변수에 할당
+        
+        //1. 버튼을 클릭하면 클릭한 버튼한테 active 추가
+        //2. 버튼을 클릭하지 않은 다른 버튼은 active 제거
+        //3. 버튼 인덱스 설정
+        //4. 1번째 버튼은 1번째 컨텐츠 연결
+        //5. 모든 컨텐츠를 안보이게 설정
+        //6. 클릭한 버튼의 해당 컨텐츠만 보이게 설정
+        
+        tabBtn.on('click', function(){
+            let target = $(this);
+            tabBtn.removeClass("active");
+            target.addClass("active");
+
+            let index = target.index();
+            tabCont.css("display", "none");
+            tabCont.eq(index).css("display", "block");
+        });
+
+        // const viewTitle = $(".view-title ul li");
+        // const viewCont = $(".view-cont > div");
+        
+        // viewTitle.click(function(){
+        //     let target = $(this);
+        //     viewTitle.removeClass("active");
+        //     target.addClass("active");
+
+        //     let index = target.index();
+        //     viewCont.css("display", "none");
+        //     viewCont.eq(index).css("display", "block");
+        // });
+    </script>
+    <!-- //script -->
+</body>
+
+</html>

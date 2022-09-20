@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout04</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #ede7f6;
+        }
+        #wrap {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            width: 100%;
+            height: 100px;
+            background-color: #d1c4e9;
+        }
+        main {
+            overflow: hidden;
+        }
+        aside {
+            width: 100%;
+            height: 100px;
+            background-color: #b39ddb;
+        }
+        article {
+            width: 40%;
+            height: 900px;
+            background-color: #9575cd;
+            float: left;
+        }
+        section {
+            width: 60%;
+            height: 900px;
+            background-color: #7e57c2;
+            float: left;
+        }
+        footer {
+            width: 100%;
+            height: 100px;
+            background-color: #673ab7;
+        }
+        @media(max-width : 1220px){
+            #wrap {
+                width: 100%;
+            }
+            aside {
+                display: none;
+            }
+        }
+        @media(max-width : 600px){
+            article {
+                float: none;
+                width: 100%;
+                height: 450px;
+            }
+            section {
+                float: none;
+                width: 100%;
+                height: 450px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <header></header>
+        <main>
+            <aside></aside>
+            <article></article>
+            <section></section>
+        </main>
+        <footer></footer>
+    </div>
+</body>
+</html>

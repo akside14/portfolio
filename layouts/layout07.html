@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout07</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            background-color: #e0f2f1;
+        }
+        .wrap {
+            margin: 0 auto;
+            width: 1200px;
+            text-align: center;
+            color: #fff;
+            font-size: 20px;
+        }
+        /* header */
+        header {
+            overflow: hidden;
+            line-height: 100px;
+        }
+        header .logo {
+            float: left;
+            width: 250px;
+            height: 100px;
+            background-color: #b2dfdb;
+        }
+        header .menu {
+            float: left;
+            width: 950px;
+            height: 100px;
+            background-color: #80cbc4;
+        }
+
+        /* main */
+        main .banner {
+            height: 400px;
+            background-color: #4db6ac;
+            line-height: 400px;
+        }
+        main .contents {
+            overflow: hidden;
+            line-height: 250px;
+        }
+        main .contents .notice {
+            float: left;
+            width: 400px;
+            height: 250px;
+            background-color: #26a69a;
+        }
+        main .contents .gallary {
+            float: left;
+            width: 400px;
+            height: 250px;
+            background-color: #009688;
+        }
+        main .contents .popup {
+            float: left;
+            width: 400px;
+            height: 250px;
+            background-color: #00897b;
+        }
+
+        /* footer */
+        footer {
+            overflow: hidden;
+            line-height: 100px;
+        }
+        footer .logobottom {
+            float: left;
+            width: 200px;
+            height: 100px;
+            background-color: #00796b;
+        }
+        footer .copyright {
+            float: left;
+            width: 800px;
+            height: 100px;
+            background-color: #00695c;
+        }
+        footer .sns {
+            float: left;
+            width: 200px;
+            height: 100px;
+            background-color: #004d40;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="logo">로고</div>
+            <div class="menu">메뉴</div>
+        </header>
+        <main>
+            <div class="banner">이미지 슬라이드</div>
+            <div class="contents">
+                <div class="notice">공지사항</div>
+                <div class="gallary">갤러리</div>
+                <div class="popup">팝업</div>
+            </div>
+        </main>
+        <footer>
+            <div class="logobottom">로고</div>
+            <div class="copyright">CopyRight</div>
+            <div class="sns">SNS</div>
+        </footer>    
+    </div>
+</body>
+</html>
